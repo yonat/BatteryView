@@ -1,4 +1,4 @@
-# StepProgressView
+# BatteryView
 Simple battery shaped UIView.
 
 <p align="center">
