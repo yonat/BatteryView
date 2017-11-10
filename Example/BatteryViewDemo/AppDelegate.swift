@@ -17,6 +17,7 @@ class BatteryViewController: UIViewController {
 
         let littleBattery = BatteryView(frame: CGRect(x: 50, y: 30, width: 25, height: 45))
         littleBattery.lowThreshold = 20
+        littleBattery.borderColor = .orange
         view.addSubview(littleBattery)
 
         let horizontalBettery = BatteryView(frame: CGRect(x: 140, y: 30, width: 140, height: 60))

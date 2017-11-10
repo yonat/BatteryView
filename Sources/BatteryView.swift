@@ -39,6 +39,13 @@ open class BatteryView: UIView {
     @IBInspectable open var lowLevelColor: UIColor  = UIColor(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet {layoutFillColor()} }
     @IBInspectable open var noLevelColor: UIColor   = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1) { didSet {layoutFillColor()} }
 
+    @IBInspectable open var borderColor: UIColor    = .black {
+        didSet {
+            bodyOutline.borderColor = borderColor.cgColor
+            terminalOutline.borderColor = borderColor.cgColor
+        }
+    }
+
     /// set as 0 for default borderWidth = length / 20
     @IBInspectable open var borderWidth: CGFloat = 0        { didSet {layoutBattery(); layoutLevel()} }
 

@@ -22,10 +22,11 @@ batteryView.lowThreshold = 25 // battery fill becomes red if level is below this
 
 ## Changing Appearance
 
-**Fill Colors:**
+**Colors:**
 
 
 ```swift
+batteryView.borderColor    = .darkGray
 batteryView.highLevelColor = .green
 batteryView.lowLevelColor  = .red
 batteryView.noLevelColor   = .gray
