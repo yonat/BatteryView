@@ -21,12 +21,10 @@ batteryView.level = 42 // anywhere in 0...100
   s.author             = { "Yonat Sharon" => "yonat@ootips.org" }
   s.social_media_url   = "http://twitter.com/yonatsharon"
 
+  s.swift_version = '4.0'
   s.platform     = :ios, "8.0"
-
-  s.source       = { :git => "https://github.com/yonat/BatteryView.git", :tag => s.version }
-
-  s.source_files  = "Sources/*"
-
   s.requires_arc = true
 
+  s.source       = { :git => "https://github.com/yonat/BatteryView.git", :tag => s.version }
+  s.source_files  = "Sources/*"
 end
