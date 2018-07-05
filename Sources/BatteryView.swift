@@ -79,8 +79,9 @@ open class BatteryView: UIView {
     private var levelFill = CALayer()
 
     private func setUp() {
-        layer.addSublayer(levelFill)
         layer.addSublayer(bodyOutline)
+        bodyOutline.masksToBounds = true
+        bodyOutline.addSublayer(levelFill)
         layer.addSublayer(terminalOutline)
         layer.addSublayer(terminalOpening)
         setNeedsLayout()
