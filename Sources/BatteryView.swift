@@ -11,7 +11,6 @@ import UIKit
 
 @IBDesignable
 open class BatteryView: UIView {
-
     // MARK: - Behavior Properties
 
     /// 0 to 100 percent full, unavailable = -1
@@ -67,6 +66,7 @@ open class BatteryView: UIView {
     }
 
     open override func layoutSubviews() {
+        super.layoutSubviews()
         layoutBattery()
         layoutLevel()
     }
@@ -124,7 +124,7 @@ open class BatteryView: UIView {
     }
 
     private func layoutLevel() {
-        var levelFrame = bodyOutline.frame.insetBy(dx: bodyOutline.borderWidth, dy: bodyOutline.borderWidth)
+        var levelFrame = bodyOutline.bounds.insetBy(dx: bodyOutline.borderWidth, dy: bodyOutline.borderWidth)
         if level >= 0 && level <= 100 {
             let levelInset = (isVertical ? levelFrame.height : levelFrame.width) * CGFloat(100 - level) / 100
             (_, levelFrame) = levelFrame.divided(atDistance: levelInset, from: direction)

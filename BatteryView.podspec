@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BatteryView"
-  s.version      = "1.2.2"
+  s.version      = "1.3.0"
   s.summary      = "Simple battery shaped UIView."
 
   s.description  = <<-DESC
@@ -21,7 +21,7 @@ batteryView.level = 42 // anywhere in 0...100
   s.author             = { "Yonat Sharon" => "yonat@ootips.org" }
   s.social_media_url   = "http://twitter.com/yonatsharon"
 
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
   s.platform     = :ios, "8.0"
   s.requires_arc = true
 
