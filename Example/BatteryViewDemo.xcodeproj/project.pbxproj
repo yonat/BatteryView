@@ -108,6 +108,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -146,7 +147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\nswiftformat --stripunusedargs unnamed-only \"${SRCROOT}/../Sources\"\nswiftformat --stripunusedargs unnamed-only \"${SRCROOT}\"\nfi";
+			shellScript = "if which swiftformat >/dev/null; then\nswiftformat --swiftversion ${SWIFT_VERSION} \"${SRCROOT}/../Sources\"\nswiftformat --swiftversion ${SWIFT_VERSION} --config \"${SRCROOT}/../Sources/.swiftformat\" \"${SRCROOT}\"\nfi\n";
 		};
 		DCD5945A20B17ED4001B6E44 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -159,7 +160,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config \"${SRCROOT}/../Sources/.swiftlint.yml\"\ncd \"${SRCROOT}/../Sources\"\nswiftlint\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config \"${SRCROOT}/../Sources/.swiftlint.yml\"\ncd \"${SRCROOT}/../Sources\"\nswiftlint\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

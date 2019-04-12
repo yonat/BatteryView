@@ -34,9 +34,11 @@ open class BatteryView: UIView {
     @IBInspectable open var terminalLengthRatio: CGFloat = 0.1 { didSet { setNeedsLayout() } }
     @IBInspectable open var terminalWidthRatio: CGFloat = 0.4 { didSet { setNeedsLayout() } }
 
+    // swiftlint:disable redundant_type_annotation
     @IBInspectable open var highLevelColor: UIColor = UIColor(red: 0.0, green: 0.9, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
     @IBInspectable open var lowLevelColor: UIColor = UIColor(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
     @IBInspectable open var noLevelColor: UIColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1) { didSet { layoutFillColor() } }
+    // swiftlint:enable redundant_type_annotation
 
     @IBInspectable open var borderColor: UIColor = .black {
         didSet {
