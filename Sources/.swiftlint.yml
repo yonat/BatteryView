@@ -1,44 +1,100 @@
-excluded: # paths to ignore during linting. Takes precedence over `included`.
+excluded:
   - Pods
+  - Example/Pods
+
 opt_in_rules:
-  - force_unwrapping
-  - explicit_init
-  - overridden_super_call
-  - redundant_nil_coalescing
-  - nimble_operator
-  - operator_usage_whitespace
+  - array_init
   - closure_end_indentation
-  - first_where
-  - number_separator
-  - prohibited_super_call
-  - fatal_error_message
-  - vertical_parameter_alignment_on_call
-  - unneeded_parentheses_in_closure_argument
-  - pattern_matching_keywords
-  - literal_expression_end_indentation
-  - joined_default_parameter
   - contains_over_first_not_nil
-  - override_in_extension
-  - single_test_class
-  - sorted_first_last
   - convenience_type
   - empty_count
   - empty_string
-  - toggle_bool
-  - unused_private_declaration
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - force_unwrapping
   - identical_operands
-  - array_init
   - implicit_return
   - implicitly_unwrapped_optional
-  - vertical_whitespace_opening_braces
-  - vertical_whitespace_closing_braces
+  - joined_default_parameter
   - last_where
+  - literal_expression_end_indentation
+  - nimble_operator
+  - operator_usage_whitespace
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - prohibited_super_call
+  - redundant_nil_coalescing
   - redundant_type_annotation
+  - single_test_class
+  - sorted_first_last
+  - toggle_bool
+  - unneeded_parentheses_in_closure_argument
+  - unused_private_declaration
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+
+disabled_rules:
+  - unused_closure_parameter
+  - large_tuple
+  - multiple_closures_with_trailing_closure
+
+empty_count: warning
+force_cast: warning
+
+trailing_comma:
+  mandatory_comma: true
+
 identifier_name:
   excluded:
     - i
     - n
+    - id
+    - on
+    - x
+    - y
     - dx
     - dy
+
 line_length:
-    - 150
+  warning: 150
+  ignores_function_declarations: true
+  ignores_comments: true
+  ignores_interpolated_strings: true
+  ignores_urls: true
+
+nesting:
+  type_level:
+    warning: 2
+
+custom_rules:
+  already_true:
+    regex: "== true"
+    message: "Don't compare to true, just use the bool value."
+  already_bool:
+    regex: "== false"
+    message: "Don't compare to false, just use !value."
+  numbers_smell:
+    regex: '(return |case |\w\(|: |\?\? |\, |== |<=? |>=? |\+= |\-= |\/= |\*= |%= |\w\.\w+ = )\(*\d{2,}'
+    message: "Numbers smell; define a constant instead."
+  auto_generated_leftovers:
+    regex: 'func [^\n]*\{\n(\s*super\.[^\n]*\n(\s*\/\/[^\n]*\n)*|(\s*\/\/[^\n]*\n)+)\s*\}'
+    message: "Delete auto-generated functions that you don't use"
+#  commented_code:
+#    regex: '(?<!:|\/)\/\/\h*[a-z.](?!wiftlint)'
+#    message: "Comment starting with lowercase letter - did you forget to delete old code?"
+#  multiline_commented_code:
+#    regex: '^\s*[a-z]'
+#    match_kinds: comment
+#    message: "Comment starting with lowercase letter - did you forget to delete old code?"
+#  non_localized_word:
+#    regex: '(?<!NSLocalizedString\()"[[:upper:]][[:lower:]]+"'
+#    message: "Wrap string in NSLocalizedString()"
+#  non_localized_sentence:
+#    regex: '(?<!NSLocalizedString\(|fatalError\(|\S)"[^"]+ [^"]*"'
+#    message: "Wrap string in NSLocalizedString()"
+#  non_localized_multiline:
+#    regex: '(?<!NSLocalizedString\()""".*?"""'
+#    message: "Wrap string in NSLocalizedString()"

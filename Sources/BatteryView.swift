@@ -17,30 +17,30 @@ open class BatteryView: UIView {
     @IBInspectable open var level: Int = -1 { didSet { layoutLevel() } }
 
     /// change color when level crosses the threshold
-    @IBInspectable open var lowThreshold: Int = 10 { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var lowThreshold: Int = 10 { didSet { layoutFillColor() } }
 
     // MARK: - Appearance Properties
 
     /// direction of battery terminal
-    open var direction: CGRectEdge = .minYEdge { didSet { setNeedsLayout() } }
+    @objc open dynamic var direction: CGRectEdge = .minYEdge { didSet { setNeedsLayout() } }
 
     /// simplified direction of battery terminal (for Interface Builder)
-    @IBInspectable open var isVertical: Bool {
+    @IBInspectable open dynamic var isVertical: Bool {
         get { return direction == .maxYEdge || direction == .minYEdge }
         set { direction = newValue ? .minYEdge : .maxXEdge }
     }
 
     // relative size of  battery terminal
-    @IBInspectable open var terminalLengthRatio: CGFloat = 0.1 { didSet { setNeedsLayout() } }
-    @IBInspectable open var terminalWidthRatio: CGFloat = 0.4 { didSet { setNeedsLayout() } }
+    @IBInspectable open dynamic var terminalLengthRatio: CGFloat = 0.1 { didSet { setNeedsLayout() } }
+    @IBInspectable open dynamic var terminalWidthRatio: CGFloat = 0.4 { didSet { setNeedsLayout() } }
 
     // swiftlint:disable redundant_type_annotation
-    @IBInspectable open var highLevelColor: UIColor = UIColor(red: 0.0, green: 0.9, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
-    @IBInspectable open var lowLevelColor: UIColor = UIColor(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
-    @IBInspectable open var noLevelColor: UIColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var highLevelColor: UIColor = UIColor(red: 0.0, green: 0.9, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var lowLevelColor: UIColor = UIColor(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var noLevelColor: UIColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1) { didSet { layoutFillColor() } }
     // swiftlint:enable redundant_type_annotation
 
-    @IBInspectable open var borderColor: UIColor = .black {
+    @IBInspectable open dynamic var borderColor: UIColor = .black {
         didSet {
             bodyOutline.borderColor = borderColor.cgColor
             terminalOutline.borderColor = borderColor.cgColor
@@ -48,10 +48,10 @@ open class BatteryView: UIView {
     }
 
     /// set as 0 for default borderWidth = length / 20
-    @IBInspectable open var borderWidth: CGFloat = 0 { didSet { layoutBattery(); layoutLevel() } }
+    @IBInspectable open dynamic var borderWidth: CGFloat = 0 { didSet { layoutBattery(); layoutLevel() } }
 
     /// set as 0 for default cornerRadius = length / 10
-    @IBInspectable open var cornerRadius: CGFloat = 0 { didSet { layoutCornerRadius() } }
+    @IBInspectable open dynamic var cornerRadius: CGFloat = 0 { didSet { layoutCornerRadius() } }
 
     // MARK: - Overrides
 
