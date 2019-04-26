@@ -22,8 +22,9 @@ batteryView.lowThreshold = 25 // battery fill becomes red if level is below this
 
 ## Changing Appearance
 
-**Colors:**
+The properties below can be set in Interface Builder, in code, or through a UIAppearance proxy (e.g., `BatteryView.appearance().borderColor= .gray`).
 
+**Colors:**
 
 ```swift
 batteryView.borderColor    = .darkGray
