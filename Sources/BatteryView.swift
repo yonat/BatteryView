@@ -134,7 +134,7 @@ extension Int {
     private func layoutLevel() {
         var levelFrame = bodyOutline.bounds.insetBy(dx: bodyOutline.borderWidth, dy: bodyOutline.borderWidth)
         if level >= 0 && level <= .fullBattery {
-            let levelInset = (isVertical ? levelFrame.height : levelFrame.width) * CGFloat(.fullBattery - level) / CGFloat(.fullBattery)
+            let levelInset = (isVertical ? levelFrame.height : levelFrame.width) * CGFloat(.fullBattery - level) / CGFloat(Int.fullBattery)
             (_, levelFrame) = levelFrame.divided(atDistance: levelInset, from: direction)
         }
         levelFill.frame = levelFrame.integral
