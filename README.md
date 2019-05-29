@@ -18,6 +18,7 @@ Simple battery shaped UIView.
 let batteryView = BatteryView(frame: smallRect)
 batteryView.level = 42 // anywhere in 0...100
 batteryView.lowThreshold = 25 // battery fill becomes red if level is below this threshold
+batteryView.gradientThreshold = 50 // battery fill gradually changes from green to red below this threshold
 ```
 
 ## Changing Appearance
@@ -46,11 +47,6 @@ batteryView.cornerRadius = 5          // default is batteryLength / 10
 
 ```
 
-## Requirements
-
-- iOS 8.0+
-- Xcode 7.3
-
 ## Installation
 
 ### CocoaPods:
@@ -75,5 +71,3 @@ Copy `Sources/*` to your Xcode project.
 [license-url]: LICENSE.txt
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[codebeat-image]: https://codebeat.co/badges/c19b47ea-2f9d-45df-8458-b2d952fe9dad
-[codebeat-url]: https://codebeat.co/projects/github-com-vsouza-awesomeios-com

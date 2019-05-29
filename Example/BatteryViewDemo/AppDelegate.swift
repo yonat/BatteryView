@@ -12,16 +12,19 @@ class BatteryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let bigBattery = BatteryView(frame: view.bounds.insetBy(dx: 60, dy: 120))
+        bigBattery.gradientThreshold = 30
         view.addSubview(bigBattery)
 
         let littleBattery = BatteryView(frame: CGRect(x: 50, y: 30, width: 25, height: 45))
         littleBattery.lowThreshold = 20
+        littleBattery.gradientThreshold = 80
         littleBattery.borderColor = .orange
         view.addSubview(littleBattery)
 
         let horizontalBettery = BatteryView(frame: CGRect(x: 140, y: 30, width: 140, height: 60))
         horizontalBettery.direction = .minXEdge
         horizontalBettery.lowThreshold = 30
+        horizontalBettery.gradientThreshold = 50
         horizontalBettery.borderWidth = 3
         horizontalBettery.highLevelColor = .purple
         horizontalBettery.lowLevelColor = .magenta
