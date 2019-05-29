@@ -23,7 +23,7 @@ batteryView.gradientThreshold = 50 // battery fill gradually changes from green 
 
 ## Changing Appearance
 
-The properties below can be set in Interface Builder, in code, or through a UIAppearance proxy (e.g., `BatteryView.appearance().borderColor= .gray`).
+The properties below can be set in Interface Builder, in code, or through a UIAppearance proxy (e.g., `BatteryView.appearance().borderColor = .gray`).
 
 **Colors:**
 
