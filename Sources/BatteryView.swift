@@ -59,6 +59,20 @@ extension Int {
     /// set as 0 for default cornerRadius = length / 10
     @IBInspectable open dynamic var cornerRadius: CGFloat = 0 { didSet { layoutCornerRadius() } }
 
+    public var currentFillColor: UIColor {
+        switch level {
+        case 0 ... lowThreshold:
+            return lowLevelColor
+        case gradientThreshold ... .fullBattery:
+            return highLevelColor
+        case lowThreshold ... .fullBattery:
+            let fraction = CGFloat(level - lowThreshold) / CGFloat(min(gradientThreshold, .fullBattery) - lowThreshold)
+            return lowLevelColor.blend(with: highLevelColor, fraction: fraction)
+        default:
+            return noLevelColor
+        }
+    }
+
     // MARK: - Overrides
 
     open override var backgroundColor: UIColor? { didSet { layoutFillColor() } }
@@ -143,21 +157,10 @@ extension Int {
     }
 
     private func layoutFillColor() {
-        if level >= 0 && level <= .fullBattery {
-            switch level {
-            case 0 ... lowThreshold:
-                levelFill.backgroundColor = lowLevelColor.cgColor
-            case gradientThreshold ... 100:
-                levelFill.backgroundColor = highLevelColor.cgColor
-            default:
-                let fraction = CGFloat(level - lowThreshold) / CGFloat(min(gradientThreshold, .fullBattery) - lowThreshold)
-                levelFill.backgroundColor = lowLevelColor.blend(with: highLevelColor, fraction: fraction).cgColor
-            }
-            terminalOpening.backgroundColor = (backgroundColor ?? .white).cgColor
-        } else {
-            levelFill.backgroundColor = noLevelColor.cgColor
-            terminalOpening.backgroundColor = noLevelColor.cgColor
-        }
+        levelFill.backgroundColor = currentFillColor.cgColor
+        terminalOpening.backgroundColor = (0 ... .fullBattery).contains(level)
+            ? (backgroundColor ?? .white).cgColor
+            : noLevelColor.cgColor
     }
 
     private func layoutCornerRadius() {
