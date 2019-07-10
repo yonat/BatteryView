@@ -43,8 +43,11 @@ extension Int {
     // swiftlint:disable redundant_type_annotation
     @IBInspectable open dynamic var highLevelColor: UIColor = UIColor(red: 0.0, green: 0.9, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
     @IBInspectable open dynamic var lowLevelColor: UIColor = UIColor(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
-    @IBInspectable open dynamic var noLevelColor: UIColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var noLevelColor: UIColor = UIColor(white: 0.8, alpha: 1) { didSet { layoutFillColor() } }
     // swiftlint:enable redundant_type_annotation
+
+    /// label shown over battery when the level is undefined or out of range
+    @IBInspectable open dynamic var noLevelText: String? = "?"
 
     @IBInspectable open dynamic var borderColor: UIColor = .black {
         didSet {
@@ -93,12 +96,13 @@ extension Int {
         layoutLevel()
     }
 
-    // MARK: - Sublayers
+    // MARK: - Subviews & Sublayers
 
-    private var bodyOutline = CALayer()
-    private var terminalOutline = CALayer()
-    private var terminalOpening = CALayer()
-    private var levelFill = CALayer()
+    public let noLevelLabel = UILabel()
+    private let bodyOutline = CALayer()
+    private let terminalOutline = CALayer()
+    private let terminalOpening = CALayer()
+    private let levelFill = CALayer()
 
     private func setUp() {
         layer.addSublayer(bodyOutline)
@@ -107,6 +111,9 @@ extension Int {
         layer.addSublayer(terminalOutline)
         layer.addSublayer(terminalOpening)
         setNeedsLayout()
+
+        noLevelLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(noLevelLabel)
     }
 
     // MARK: - Layout
@@ -121,6 +128,8 @@ extension Int {
         // layout body
         bodyOutline.frame = bodyFrame
         bodyOutline.borderWidth = borderWidth != 0 ? borderWidth : length / 20
+        noLevelLabel.center = bodyOutline.center
+        noLevelLabel.font = noLevelLabel.font.withSize(min(bodyFrame.width, 0.75 * bodyFrame.height))
 
         // layout terminal
         let parallelInsetRatio = (1 - terminalWidthRatio) / 2
@@ -150,6 +159,9 @@ extension Int {
         if level >= 0 && level <= .fullBattery {
             let levelInset = (isVertical ? levelFrame.height : levelFrame.width) * CGFloat(.fullBattery - level) / CGFloat(Int.fullBattery)
             (_, levelFrame) = levelFrame.divided(atDistance: levelInset, from: direction)
+            noLevelLabel.text = nil
+        } else {
+            noLevelLabel.text = noLevelText
         }
         levelFill.frame = levelFrame.integral
         layoutCornerRadius()
@@ -182,5 +194,11 @@ extension UIColor {
         let b = b1 + (b2 - b1) * f
         let a = a1 + (a2 - a1) * f
         return UIColor(hue: h, saturation: s, brightness: b, alpha: a)
+    }
+}
+
+extension CALayer {
+    var center: CGPoint {
+        return CGPoint(x: frame.midX, y: frame.midY)
     }
 }

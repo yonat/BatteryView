@@ -32,6 +32,7 @@ batteryView.borderColor    = .darkGray
 batteryView.highLevelColor = .green
 batteryView.lowLevelColor  = .red
 batteryView.noLevelColor   = .gray
+batteryView.noLevelText = "?" // shown over battery when the level is undefined or out of bounds
 ```
 
 **Battery Shape:**
@@ -44,7 +45,6 @@ batteryView.terminalWidthRatio = 0.4  // relative to battery width
 
 batteryView.borderWidth = 2.5         // default is batteryLength / 20
 batteryView.cornerRadius = 5          // default is batteryLength / 10
-
 ```
 
 ## Installation

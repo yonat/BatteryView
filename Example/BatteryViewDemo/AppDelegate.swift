@@ -9,6 +9,8 @@
 import UIKit
 
 class BatteryViewController: UIViewController {
+    @IBOutlet var battery: BatteryView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let bigBattery = BatteryView(frame: view.bounds.insetBy(dx: 60, dy: 120))
@@ -37,6 +39,10 @@ class BatteryViewController: UIViewController {
                 [bigBattery, littleBattery, horizontalBettery].forEach { $0.level = 100 - 10 * i }
             }
         }
+    }
+
+    @IBAction func changeBatteryLevel(_ sender: UISlider) {
+        battery.level = Int(sender.value.rounded())
     }
 }
 
