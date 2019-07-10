@@ -114,6 +114,10 @@ extension Int {
 
         noLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(noLevelLabel)
+
+        isAccessibilityElement = true
+        accessibilityIdentifier = "battery"
+        accessibilityLabel = "battery"
     }
 
     // MARK: - Layout
@@ -160,8 +164,10 @@ extension Int {
             let levelInset = (isVertical ? levelFrame.height : levelFrame.width) * CGFloat(.fullBattery - level) / CGFloat(Int.fullBattery)
             (_, levelFrame) = levelFrame.divided(atDistance: levelInset, from: direction)
             noLevelLabel.text = nil
+            accessibilityValue = level.description
         } else {
             noLevelLabel.text = noLevelText
+            accessibilityValue = noLevelText
         }
         levelFill.frame = levelFrame.integral
         layoutCornerRadius()
