@@ -19,7 +19,7 @@ batteryView.level = 42 // anywhere in 0...100
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
   s.author             = { "Yonat Sharon" => "yonat@ootips.org" }
-  s.social_media_url   = "http://twitter.com/yonatsharon"
+  s.social_media_url   = "https://twitter.com/yonatsharon"
 
   s.swift_version = '4.2'
   s.swift_versions = ['4.2', '5.0']
@@ -28,4 +28,7 @@ batteryView.level = 42 // anywhere in 0...100
 
   s.source       = { :git => "https://github.com/yonat/BatteryView.git", :tag => s.version }
   s.source_files  = "Sources/*"
+
+  s.pod_target_xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '$(FRAMEWORK_SEARCH_PATHS)' } # fix Interface Builder render error
+
 end
