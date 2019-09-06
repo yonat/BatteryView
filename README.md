@@ -55,9 +55,13 @@ batteryView.cornerRadius = 5          // default is batteryLength / 10
 pod 'BatteryView'
 ```
 
-### Manually:
+### Swift Package Manager:
 
-Copy `Sources/*` to your Xcode project.
+```swift
+dependencies: [
+    .package(url: "https://github.com/yonat/BatteryView", from: "1.3.8")
+]
+```
 
 ## Meta
 
