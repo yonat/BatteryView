@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Fixed
+- show `noLevelText` when embedded in a SwiftUI view.
 - fill terminal when battery level is 100.
 
 ## [1.3.8] - 2019-08-22

@@ -167,6 +167,7 @@ extension Int {
             accessibilityValue = level.description
         } else {
             noLevelLabel.text = noLevelText
+            noLevelLabel.sizeToFit()
             accessibilityValue = noLevelText
         }
         levelFill.frame = levelFrame.integral
