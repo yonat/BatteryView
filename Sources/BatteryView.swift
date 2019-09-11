@@ -176,9 +176,14 @@ extension Int {
 
     private func layoutFillColor() {
         levelFill.backgroundColor = currentFillColor.cgColor
-        terminalOpening.backgroundColor = (0 ... .fullBattery).contains(level)
-            ? (backgroundColor ?? .white).cgColor
-            : noLevelColor.cgColor
+        switch level {
+        case .fullBattery:
+            terminalOpening.backgroundColor = currentFillColor.cgColor
+        case 0 ..< .fullBattery:
+            terminalOpening.backgroundColor = (backgroundColor ?? .white).cgColor
+        default:
+            terminalOpening.backgroundColor = noLevelColor.cgColor
+        }
     }
 
     private func layoutCornerRadius() {
