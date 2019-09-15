@@ -49,7 +49,7 @@ extension Int {
     /// label shown over battery when the level is undefined or out of range
     @IBInspectable open dynamic var noLevelText: String? = "?"
 
-    @IBInspectable open dynamic var borderColor: UIColor = .black {
+    @IBInspectable open dynamic var borderColor: UIColor = .foreground {
         didSet {
             bodyOutline.borderColor = borderColor.cgColor
             terminalOutline.borderColor = borderColor.cgColor
@@ -181,7 +181,7 @@ extension Int {
         case .fullBattery:
             terminalOpening.backgroundColor = currentFillColor.cgColor
         case 0 ..< .fullBattery:
-            terminalOpening.backgroundColor = (backgroundColor ?? .white).cgColor
+            terminalOpening.backgroundColor = (backgroundColor ?? .background).cgColor
         default:
             terminalOpening.backgroundColor = noLevelColor.cgColor
         }
@@ -212,5 +212,23 @@ extension UIColor {
 extension CALayer {
     var center: CGPoint {
         return CGPoint(x: frame.midX, y: frame.midY)
+    }
+}
+
+extension UIColor {
+    static var background: UIColor {
+        if #available(iOS 13, *) {
+            return .systemBackground
+        } else {
+            return .white
+        }
+    }
+
+    static var foreground: UIColor {
+        if #available(iOS 13, *) {
+            return .label
+        } else {
+            return .black
+        }
     }
 }
