@@ -29,6 +29,8 @@ batteryView.level = 42 // anywhere in 0...100
   s.source       = { :git => "https://github.com/yonat/BatteryView.git", :tag => s.version }
   s.source_files  = "Sources/*"
 
+  s.dependency 'SweeterSwift'
+
   s.pod_target_xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '$(FRAMEWORK_SEARCH_PATHS)' } # fix Interface Builder render error
 
 end

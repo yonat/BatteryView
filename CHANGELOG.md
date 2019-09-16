@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - support iOS 13 dark mode.
+- add SwiftUI wrapper `BatteryShape`.
 
 ## [1.3.9] - 2019-09-12
 
