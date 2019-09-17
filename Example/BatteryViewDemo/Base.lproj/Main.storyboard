@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-y5-b3Q" customClass="BatteryView" customModule="BatteryViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="607" width="100" height="40"/>
+                                <rect key="frame" x="137.5" y="569" width="100" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bFd-1R-A7K"/>
@@ -36,23 +34,34 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="35" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Kg0-p9-8Sw">
-                                <rect key="frame" x="18" y="561" width="339" height="31"/>
+                                <rect key="frame" x="18" y="523" width="339" height="31"/>
                                 <connections>
                                     <action selector="changeBatteryLevel:" destination="BYZ-38-t0r" eventType="valueChanged" id="siV-5Y-K4j"/>
                                 </connections>
                             </slider>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUg-qO-eQ1">
+                                <rect key="frame" x="107.5" y="625" width="160" height="26"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                <state key="normal" title="Show in SwiftUI View"/>
+                                <connections>
+                                    <action selector="showSwiftUIDemo" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Gm-0D-TbO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kg0-p9-8Sw" secondAttribute="trailing" constant="20" symbolic="YES" id="2d1-fr-d7U"/>
                             <constraint firstItem="Kg0-p9-8Sw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="3gh-BS-Nev"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iEh-y5-b3Q" secondAttribute="bottom" constant="20" id="Chp-Dd-o8T"/>
+                            <constraint firstItem="ZUg-qO-eQ1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Je-VV-WND"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZUg-qO-eQ1" secondAttribute="bottom" constant="16" id="Fl2-zJ-sI2"/>
+                            <constraint firstItem="ZUg-qO-eQ1" firstAttribute="top" secondItem="iEh-y5-b3Q" secondAttribute="bottom" constant="16" id="gdx-nU-BJp"/>
                             <constraint firstItem="iEh-y5-b3Q" firstAttribute="top" secondItem="Kg0-p9-8Sw" secondAttribute="bottom" constant="16" id="p2x-0w-NLF"/>
                             <constraint firstItem="iEh-y5-b3Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zui-qd-LGW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="battery" destination="iEh-y5-b3Q" id="csU-kd-7tD"/>
+                        <outlet property="showSwiftUIButton" destination="ZUg-qO-eQ1" id="EWH-ai-0Ww"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

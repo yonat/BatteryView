@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC64D11823311F7A00506A50 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC64D11723311F7A00506A50 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DC64D11A23311F9900506A50 /* BatteryShapeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC64D11923311F9900506A50 /* BatteryShapeDemo.swift */; };
+		DC64D11C2331205200506A50 /* BatteryShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC64D11B2331205200506A50 /* BatteryShape.swift */; };
 		DCBCBEF21DEC700D00844FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBCBEF11DEC700D00844FCB /* AppDelegate.swift */; };
 		DCBCBEF71DEC700D00844FCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCBCBEF51DEC700D00844FCB /* Main.storyboard */; };
 		DCBCBEF91DEC700D00844FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCBCBEF81DEC700D00844FCB /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* Begin PBXFileReference section */
 		DC26956C229E73B200821568 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		DC26956D229E73B200821568 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		DC64D11723311F7A00506A50 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DC64D11923311F9900506A50 /* BatteryShapeDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryShapeDemo.swift; sourceTree = "<group>"; };
+		DC64D11B2331205200506A50 /* BatteryShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatteryShape.swift; path = ../Sources/BatteryShape.swift; sourceTree = "<group>"; };
 		DCBCBEEE1DEC700D00844FCB /* BatteryViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatteryViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCBCBEF11DEC700D00844FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCBCBEF61DEC700D00844FCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,20 +37,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC64D11823311F7A00506A50 /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC64D11623311F7A00506A50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC64D11723311F7A00506A50 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCBCBEE51DEC700D00844FCB = {
 			isa = PBXGroup;
 			children = (
 				DC26956C229E73B200821568 /* CHANGELOG.md */,
 				DC26956D229E73B200821568 /* README.md */,
 				DCBCBF031DEC70DD00844FCB /* BatteryView.swift */,
+				DC64D11B2331205200506A50 /* BatteryShape.swift */,
 				DCBCBEF01DEC700D00844FCB /* BatteryViewDemo */,
 				DCBCBEEF1DEC700D00844FCB /* Products */,
+				DC64D11623311F7A00506A50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				DCBCBEF11DEC700D00844FCB /* AppDelegate.swift */,
+				DC64D11923311F9900506A50 /* BatteryShapeDemo.swift */,
 				DCBCBEF51DEC700D00844FCB /* Main.storyboard */,
 				DCBCBEF81DEC700D00844FCB /* Assets.xcassets */,
 				DCBCBEFA1DEC700D00844FCB /* LaunchScreen.storyboard */,
@@ -172,6 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC64D11A23311F9900506A50 /* BatteryShapeDemo.swift in Sources */,
+				DC64D11C2331205200506A50 /* BatteryShape.swift in Sources */,
 				DCBCBF041DEC70DD00844FCB /* BatteryView.swift in Sources */,
 				DCBCBEF21DEC700D00844FCB /* AppDelegate.swift in Sources */,
 			);

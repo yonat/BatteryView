@@ -8,13 +8,18 @@
 
 import UIKit
 
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
+
 class BatteryViewController: UIViewController {
     @IBOutlet var battery: BatteryView!
+    @IBOutlet var showSwiftUIButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let bigBattery = BatteryView(frame: view.bounds.insetBy(dx: 60, dy: 120))
-        bigBattery.gradientThreshold = 30
+        let bigBattery = BatteryView(frame: view.bounds.insetBy(dx: 80, dy: 150).offsetBy(dx: 0, dy: -20))
+        bigBattery.gradientThreshold = 50
         view.addSubview(bigBattery)
 
         let littleBattery = BatteryView(frame: CGRect(x: 50, y: 30, width: 25, height: 45))
@@ -41,8 +46,26 @@ class BatteryViewController: UIViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if #available(iOS 13.0, *) {
+            showSwiftUIButton.isHidden = false
+            showSwiftUIButton.layer.borderWidth = 1
+            showSwiftUIButton.layer.cornerRadius = showSwiftUIButton.frame.height / 2
+            showSwiftUIButton.layer.borderColor = view.tintColor.cgColor
+        }
+    }
+
     @IBAction func changeBatteryLevel(_ sender: UISlider) {
         battery.level = Int(sender.value.rounded())
+    }
+
+    @IBAction func showSwiftUIDemo() {
+        #if canImport(SwiftUI)
+        if #available(iOS 13.0, *) {
+            present(UIHostingController(rootView: BatteryShapeDemo()), animated: true)
+        }
+        #endif
     }
 }
 

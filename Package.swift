@@ -10,11 +10,9 @@ let package = Package(
     products: [
         .library( name: "BatteryView", targets: ["BatteryView"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/yonat/SweeterSwift", from: "1.0.4"),
-    ],
+    dependencies: [],
     targets: [
-        .target(name: "BatteryView", dependencies: ["SweeterSwift"], path: "Sources")
+        .target(name: "BatteryView", dependencies: [], path: "Sources")
     ],
     swiftLanguageVersions: [.v5]
 )

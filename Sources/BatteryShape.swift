@@ -6,7 +6,6 @@
 
 #if canImport(SwiftUI)
 
-import SweeterSwift
 import SwiftUI
 
 /// Step-by-step progress view with labels and shapes.
@@ -55,6 +54,15 @@ import SwiftUI
 
     public func updateUIView(_ uiView: BatteryView, context: UIViewRepresentableContext<BatteryShape>) {
         uiView.level = level
+    }
+}
+
+infix operator =?: AssignmentPrecedence
+
+/// Assign iff right side is not nil.
+func =? <T>(lhs: inout T, rhs: T?) {
+    if nil != rhs, let rhs = rhs {
+        lhs = rhs
     }
 }
 
