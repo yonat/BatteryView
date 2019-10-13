@@ -21,6 +21,11 @@ batteryView.lowThreshold = 25 // battery fill becomes red if level is below this
 batteryView.gradientThreshold = 50 // battery fill gradually changes from green to red below this threshold
 ```
 
+### SwiftUI
+
+Use `BatteryShape` from the [swiftui branch](https://github.com/yonat/BatteryView/tree/swiftui).
+
+
 ## Changing Appearance
 
 The properties below can be set in Interface Builder, in code, or through a UIAppearance proxy (e.g., `BatteryView.appearance().borderColor = .gray`).
