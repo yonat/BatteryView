@@ -49,7 +49,7 @@ import SwiftUI
     }
 
     public func makeUIView(context: UIViewRepresentableContext<BatteryShape>) -> BatteryView {
-        return uiView
+        uiView
     }
 
     public func updateUIView(_ uiView: BatteryView, context: UIViewRepresentableContext<BatteryShape>) {

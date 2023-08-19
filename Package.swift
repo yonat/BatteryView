@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "BatteryView",
     platforms: [
-        .iOS(.v9)
+        .iOS(.v11)
     ],
     products: [
         .library( name: "BatteryView", targets: ["BatteryView"])

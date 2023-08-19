@@ -32,7 +32,7 @@ extension Int {
 
     /// simplified direction of battery terminal (for Interface Builder)
     @IBInspectable open dynamic var isVertical: Bool {
-        get { return direction == .maxYEdge || direction == .minYEdge }
+        get { direction == .maxYEdge || direction == .minYEdge }
         set { direction = newValue ? .minYEdge : .maxXEdge }
     }
 
@@ -121,7 +121,7 @@ extension Int {
 
     // MARK: - Layout
 
-    private var length: CGFloat { return isVertical ? bounds.height : bounds.width }
+    private var length: CGFloat { isVertical ? bounds.height : bounds.width }
 
     private func layoutBattery() {
         // divide total length into body and terminal
@@ -210,7 +210,7 @@ extension UIColor {
 
 extension CALayer {
     var center: CGPoint {
-        return CGPoint(x: frame.midX, y: frame.midY)
+        CGPoint(x: frame.midX, y: frame.midY)
     }
 }
 
