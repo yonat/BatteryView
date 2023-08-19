@@ -25,6 +25,7 @@ batteryView.level = 42 // anywhere in 0...100
   s.swift_versions = ['4.2', '5.0']
   s.platform     = :ios, "9.0"
   s.requires_arc = true
+  s.weak_framework = 'SwiftUI'
 
   s.source       = { :git => "https://github.com/yonat/BatteryView.git", :tag => s.version }
   s.source_files  = "Sources/*"
