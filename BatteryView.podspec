@@ -23,11 +23,12 @@ batteryView.level = 42 // anywhere in 0...100
 
   s.swift_version = '4.2'
   s.swift_versions = ['4.2', '5.0']
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
   s.requires_arc = true
 
   s.source       = { :git => "https://github.com/yonat/BatteryView.git", :tag => s.version }
   s.source_files  = "Sources/*"
+  s.resources = ['PrivacyInfo.xcprivacy']
 
   s.pod_target_xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '$(FRAMEWORK_SEARCH_PATHS)' } # fix Interface Builder render error
 

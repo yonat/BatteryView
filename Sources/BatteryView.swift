@@ -40,10 +40,9 @@ extension Int {
     @IBInspectable open dynamic var terminalLengthRatio: CGFloat = 0.1 { didSet { setNeedsLayout() } }
     @IBInspectable open dynamic var terminalWidthRatio: CGFloat = 0.4 { didSet { setNeedsLayout() } }
 
-    // swiftlint:disable redundant_type_annotation
-    @IBInspectable open dynamic var highLevelColor: UIColor = UIColor(red: 0.0, green: 0.9, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
-    @IBInspectable open dynamic var lowLevelColor: UIColor = UIColor(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
-    @IBInspectable open dynamic var noLevelColor: UIColor = UIColor(white: 0.8, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var highLevelColor: UIColor = .init(red: 0.0, green: 0.9, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var lowLevelColor: UIColor = .init(red: 0.9, green: 0.0, blue: 0.0, alpha: 1) { didSet { layoutFillColor() } }
+    @IBInspectable open dynamic var noLevelColor: UIColor = .init(white: 0.8, alpha: 1) { didSet { layoutFillColor() } }
     // swiftlint:enable redundant_type_annotation
 
     /// label shown over battery when the level is undefined or out of range
@@ -78,9 +77,9 @@ extension Int {
 
     // MARK: - Overrides
 
-    open override var backgroundColor: UIColor? { didSet { layoutFillColor() } }
+    override open var backgroundColor: UIColor? { didSet { layoutFillColor() } }
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
     }
@@ -90,7 +89,7 @@ extension Int {
         setUp()
     }
 
-    open override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         layoutBattery()
         layoutLevel()
