@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BatteryView"
-  s.version      = "1.4.0"
+  s.version      = "1.4.1"
   s.summary      = "Simple battery shaped UIView."
 
   s.description  = <<-DESC
