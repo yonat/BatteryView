@@ -19,7 +19,6 @@ batteryView.level = 42 // anywhere in 0...100
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
   s.author             = { "Yonat Sharon" => "yonat@ootips.org" }
-  s.social_media_url   = "https://twitter.com/yonatsharon"
 
   s.swift_version = '4.2'
   s.swift_versions = ['4.2', '5.0']
