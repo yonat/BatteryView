@@ -66,7 +66,7 @@ pod 'BatteryView'
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yonat/BatteryView", from: "1.4.1")
+    .package(url: "https://github.com/yonat/BatteryView", from: "1.4.2")
 ]
 ```
 
