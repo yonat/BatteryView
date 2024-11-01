@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "BatteryView", dependencies: [], path: "Sources", resources: [.copy("PrivacyInfo.xcprivacy")])
+        .target(name: "BatteryView", dependencies: [], path: "Sources", resources: [.process("PrivacyInfo.xcprivacy")])
     ],
     swiftLanguageVersions: [.v5]
 )
